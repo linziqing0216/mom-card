@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>母亲节快乐贺卡</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 飘落爱心、小花特效 */
+        .fall {
+            position: fixed;
+            top: -50px;
+            color: #ff69b4;
+            font-size: 20px;
+            opacity: 0.7;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. 作业要求的信息表格 -->
+    <table class="info-table">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>实验题目</th>
+        </tr>
+        <tr>
+            <td>202412904214</td>
+            <td>林子清</td>
+            <td>用HTML+CSS做贺卡</td>
+        </tr>
+    </table>
+
+    <!-- 2. 贺卡主体 -->
+    <div class="card">
+        <!-- 背景图片：引用你文件夹里的 picture.jpg -->
+        <img class="bg-img" src="picture.jpg" alt="母亲节背景">
+        
+        <!-- 文字内容叠加层 -->
+        <div class="card-content">
+            <h1 style="color:#000;font-weight:bold;">💐 母亲节快乐 💐</h1>
+            <div class="line"></div>
+            <div class="wish" style="color:#000;font-weight:bold;">
+                妈妈，您辛苦了！<br>
+                感谢您不是超人，<br>
+                却为我变成了万能。<br>
+                愿岁月温柔以待，<br>
+                祝您永远健康、平安、快乐！
+            </div>
+            <div class="line"></div>
+            <p class="sign" style="color:#000;font-weight:bold;">—— 爱您的子清</p>
+        </div>
+    </div>
+
+    <!-- 3. 音频播放器 -->
+    <div class="audio-box">
+        <audio controls loop>
+            <source src="music.mp3" type="audio/mpeg">
+            您的浏览器不支持音频播放
+        
+    </div>
+
+    <!-- 飘落爱心+花束 JS特效 -->
+    <script>
+        // 爱心和小花符号
+        var emojis = ['❤️','💕','💖','💐','🌸','🌷'];
+        setInterval(function(){
+            var e = document.createElement('div');
+            e.className = 'fall';
+            e.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+            // 随机横向位置
+            e.style.left = Math.random()*100 + 'vw';
+            // 随机大小
+            e.style.fontSize = Math.random()*15 + 15 + 'px';
+            // 随机下落速度
+            e.style.animationDuration = Math.random()*5 + 5 + 's';
+            document.body.appendChild(e);
+            // 掉落后删除
+            setTimeout(()=>e.remove(),10000);
+        },300);
+    </script>
+
+</body>
+</html>
