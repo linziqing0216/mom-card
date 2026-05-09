@@ -6,6 +6,16 @@
     <title>母亲节快乐贺卡</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* 只新增这三行，让整体页面垂直水平居中，其它完全不动 */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
         /* 飘落爱心、小花特效 */
         .fall {
             position: fixed;
